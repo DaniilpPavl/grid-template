@@ -1,0 +1,52 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.skills {
+  margin-bottom: 30px;
+  padding: 10px;
+
+  @media(max-width: $sm) {
+    margin-bottom: 0;
+    padding: $gap;
+  }
+
+  &__container {
+    display: grid;
+
+    margin-bottom: $gap;
+
+    gap: 10px;
+    grid-auto-rows: calc(33.333vh - 13.33px);
+    grid-template-areas: "a1 a1 a2 a3"
+    "a4 a5 a5 a6"
+    "a7 a8 a9 a6";
+    grid-template-columns: repeat(4, 1fr);
+    @include lg {
+      grid-template-areas: "a1 a1 a2"
+      "a3 a4 a4"
+      "a5 a5 a6"
+      "a7 a8 a6"
+      "a7 a9 a9";
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include md {
+      grid-template-areas: "a1 a2"
+      "a3 a2"
+      "a4 a4"
+      "a5 a6"
+      "a5 a7"
+      "a8 a9";
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include sm {
+      gap: $gap;
+      grid-template-areas: "a1" "a2" "a3" "a4" "a5" "a6" "a7" "a8" "a9";
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+  }
+}
