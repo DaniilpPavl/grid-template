@@ -1,0 +1,110 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.subscribe{
+    height: 120px;
+    background-color: $color-primary;
+    width: 100%;
+
+    @include md-sm{
+        height: 205px;
+    }
+
+    @include sm{
+        height: 277px;
+    }
+
+
+    &-container{
+        display: flex;
+        justify-content: center;
+        gap: $gap;
+        padding: $gap;
+
+        @include md-sm{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+
+            grid-template-areas: "inp-f inp-f"
+                                 "inp-s inp-b";
+        }
+
+        @include sm{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            max-width: 532px;
+            grid-template-areas: "inp-f"
+                                 "inp-s"
+                                 "inp-b";
+
+        }
+        
+        &__inp{
+            margin: 10px;
+            height: 60px;
+            border-bottom: $color-light solid 2px;
+            border: 2px solid transparent;
+            
+            font-size: 18px;
+            line-height: 39px;
+            color: $color-light;
+            font-weight: 400;
+            
+            @include lg-min{
+                width: 370px;
+            }
+
+            @include lg-md{
+                width: 252px;
+                font-size: 16px;
+            }
+            @include md-sm{
+                height: 50px;
+                max-width: 724px;
+            }
+        }
+    }
+    
+}
+
+.inpt--first{
+    background-color: rgba($color-light, 0.051);
+    padding-left: $gap;
+
+    outline: none;
+    grid-area: inp-f;
+
+    @include lg-md{
+        background-color: rgba($color-light, 0.149);
+    }
+
+    @include md-sm{
+        background-color: rgba($color-light, 0.149);
+    }
+}
+
+.inpt--second{
+    background-color: rgba($color-light, 0.051);
+    color: rgba($color-light, 0.510);
+    padding-left: $gap;
+
+    outline: none;
+    grid-area: inp-s;
+}
+
+.inpt--btn{
+    background-color: rgba($color-light, 0.102);
+
+    grid-area: inp-b;
+
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover,
+    &:focus {
+      background-color: $color-accent;
+      border: 2px solid $color-light;
+    }
+}

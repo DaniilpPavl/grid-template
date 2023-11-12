@@ -1,0 +1,120 @@
+@use "../../../presets" as *;
+@use "../../../mixins" as *;
+
+.idea{
+    background-color: $color-gray-light;
+    height: 632px;
+
+    @include lg-md{
+        height: 533px;
+    }
+
+    @include md-sm{
+        height: 470px;
+
+        &__text{
+            display: none
+        }
+    }
+
+    @include sm{
+        height: 900px; 
+        
+        // &__text{
+        //     display: none
+        // }
+    }
+
+
+    &-container{
+        @extend %container;
+        display: flex;
+        justify-content: center;
+        padding-top: 4%;
+
+        @include lg-md{
+
+        }
+        @include sm{
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__content{
+            margin-right: 50px;
+        }
+        
+        &__title{
+            font-size: 40px;
+            color: #2d3651;
+            font-weight: 700;
+            font-family: $font-header;
+            max-width: 360px;
+
+            @include lg-md{
+            font-size: 32px;  
+            }
+
+            @include md{
+                font-size: 24px;  
+            }
+
+            @include sm{
+                padding-left: 100px;
+                max-width: 420px;
+            }
+
+        }
+        
+        &__text{
+            max-width: 850px;
+            height: 319px;
+            font-size: 18px;
+            font-weight: 400;
+            position: relative;
+
+            @include md{
+                font-size: 16px;  
+            }
+
+            @include sm{
+                font-size: 16px;  
+            }
+            
+            @include sm-min{
+            &::after{
+                border: 1px solid #707070;
+                content: " ";
+                position: absolute;
+                height: 200px;
+                right: -2%;
+                top: 0;
+            }
+        }
+        }
+
+        &__image{
+            margin-top: 30px;
+
+            @include lg-md{
+                max-width: 250px;
+            }
+
+            @include md{
+                max-width: 250px;
+                max-height: 350px;
+            }
+            @include sm{
+                margin-top: 75px;
+                
+            }
+        }
+    }
+
+}
+
+@media (max-width: 890px) and (min-width: 768px){
+    .idea__text{
+        display: none;
+    }
+}

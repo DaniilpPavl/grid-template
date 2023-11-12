@@ -5,7 +5,7 @@
   margin-bottom: 30px;
   padding: 10px;
 
-  @media(max-width: $sm) {
+  @include sm{
     margin-bottom: 0;
     padding: $gap;
   }
